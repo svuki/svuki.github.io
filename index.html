@@ -1,1 +1,61 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <title>The Game of Life</title>
+     <link rel="stylesheet" type="text/css" href="gof.css">
+  </head>
+  <body>
+    <div class="info">
+      <p> The game proceeds state by state according to the following rules:
+        <ul>
+         <li> If a cell is alive with two or three neighbors, it remains alive. Otherwise it dies</li>
+         <li> If a cell is dead with three neighbors, it becomes alive. Otherwise it remains dead </li>
+        </ul>
+        A neighborhood is defined as the 8 cells immediately surrounding a given cell.
+      </p>
+      <h2> Controls </h2>
+        <ul>
+          <li> Click on a cell to toggle it on/off.</li>
+          <li> Drag across a region of cells to save the underlying pattern.</li>
+          <li> Shift click to copy the last saved pattern The pattern will then be oriented so that the upper left corner is at the click position.</li>
+          <li> The Go/Stop button will toggle iteration.</li>
+          <li> The slide controls the rate of iteration.</li>
+          <li> The reset button will clear the board of any live cells.</li>
+          <li> The grid button will overlay a grid over the board.</li>
+          <li> The save button will add the current state to the save-list. Clicking an element of the save-list will restore that state to the main canvas</li>
+        </ul>
+        </div>
+        <div class="wrapper">
+            <canvas id="grid-canvas" width="900" height="500"></canvas>
+            <canvas id="gof-canvas" width="900" height="500"></canvas>
+            <button onclick="control.button0()" class="controls">Go/Stop</button>
+            <button onclick="control.button1()" class="controls">Reset</button>
+            <button onclick="control.button2()" class="controls">Grid</button>
+            <button onclick="control.button3()" class="controls">Save</button>
+            <button onclick="control.button4()" class="controls">Soup</button>
+            <input class="controls" id="rate-slider" type="range" min="1" max="1000" value="1000">
+            <div class="saves">
+               <ol id="save-list">
+               </ol>
+            </div>
+			<div class="patterns">
+					<textarea id="rle-textarea" rows="6" cols="70">Enter RLE here.</textarea>
+				<div class="buttons">
+					<button class="rle-button" id="rle_submit_btn" onclick="get_pattern()">Read RLE</button>
+					<button class="rle-button" id="rle_generate_btn" onclick="generate_rle()">Generate RLE</button>
+				</div>
+				
+			</div>
+        </div>
+	<script src="utils.js"></script>
+        <script src="rate_controller.js"></script>
+        <script src="TDArray.js"></script>
+        <script src="gof.js"></script>
+        <script src="grid.js"></script>
+	<script src="decorated_gof.js"></script>
+        <script src="controller.js"></script>
+	<script src="rle.js"></script>
+	<script src="patterns.js"></script>
+    </body>
+</html>

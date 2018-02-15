@@ -1,0 +1,59 @@
+.wrapper {
+    margin: auto;
+    position: relative;
+    width: 900px;
+}
+
+.wrapper canvas {   
+    border: 1px solid #000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.controls {
+    position: relative;
+    top: 500px;
+}
+
+.info {
+    position: relative;
+}
+
+.saves {
+    position: relative;
+    top: 650px;
+    height: 500px;
+}
+
+.saves canvas {
+    position: static;
+    margin: 10px;
+}
+
+#grid-canvas {
+    z-index: 2;
+}
+
+#gof-canvas {
+    z-index: 1;
+}
+.patterns {
+    position: relative;
+}
+.buttons {
+    display: inline;
+    position: absolute;
+}
+.rle-button { 
+    position: relative;
+    display: block;
+    size: auto;
+}
+#rle_submit_butn {
+	z-index: 3;
+}
+
+#rle-textarea {
+	z-index:3;
+}
