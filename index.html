@@ -18,12 +18,13 @@
         <ul>
           <li> Click on a cell to toggle it on/off.</li>
           <li> Drag across a region of cells to save the underlying pattern.</li>
-          <li> Shift click to copy the last saved pattern The pattern will then be oriented so that the upper left corner is at the click position.</li>
+          <li> Shift click to copy the last saved pattern.</li>
           <li> The Go/Stop button will toggle iteration.</li>
           <li> The slide controls the rate of iteration.</li>
           <li> The reset button will clear the board of any live cells.</li>
           <li> The grid button will overlay a grid over the board.</li>
           <li> The save button will add the current state to the save-list. Clicking an element of the save-list will restore that state to the main canvas</li>
+          <li> The RLE (run length encoding) textbox allows for either generating RLE from the current game state or readying a game state from a RLE file. Once the RLE is read, shift click where you want to place the pattern.</li>
         </ul>
         </div>
         <div class="wrapper">
@@ -34,7 +35,8 @@
             <button onclick="control.button2()" class="controls">Grid</button>
             <button onclick="control.button3()" class="controls">Save</button>
             <button onclick="control.button4()" class="controls">Soup</button>
-            <input class="controls" id="rate-slider" type="range" min="1" max="1000" value="1000">
+            <label class="controls" for="rate-slider">Rate:</label>
+	    <input class="controls" id="rate-slider" type="range" step="-50" min="1000" max="50" value="1000">
             <div class="saves">
                <ol id="save-list">
                </ol>
