@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
+	<head>
      <meta charset="UTF-8">
      <title>The Game of Life</title>
-     <link rel="stylesheet" type="text/css" href="gof.css">
+     <link rel="stylesheet" type="text/css" href="css/gof.css">
   </head>
   <body>
     <div class="info">
@@ -17,47 +17,50 @@
       <h2> Controls </h2>
         <ul>
           <li> Click on a cell to toggle it on/off.</li>
-          <li> Drag across a region of cells to save the underlying pattern.</li>
-          <li> Shift click to copy the last saved pattern.</li>
+	  <li> The RLE text area can read RLE formatted game of life patterns. You can find RLE pattern files <a href="http://conwaylife.com/wiki/Category:Patterns">here</a>. Clicking read RLE will load
+               the RLE into the smaller canvas.</li>
+          <li> Shift click to copy the pattern in the smaller canvas.</li>
           <li> The Go/Stop button will toggle iteration.</li>
-          <li> The slide controls the rate of iteration.</li>
-          <li> The reset button will clear the board of any live cells.</li>
-          <li> The grid button will overlay a grid over the board.</li>
-          <li> The save button will add the current state to the save-list. Clicking an element of the save-list will restore that state to the main canvas</li>
-          <li> The RLE (run length encoding) textbox allows for either generating RLE from the current game state or readying a game state from a RLE file. Once the RLE is read, shift click where you want to place the pattern.</li>
+          <li> The soup button fills the board with a random configuration. </li>
         </ul>
         </div>
         <div class="wrapper">
-            <canvas id="grid-canvas" width="900" height="500"></canvas>
-            <canvas id="gof-canvas" width="900" height="500"></canvas>
-            <button onclick="control.button0()" class="controls">Go/Stop</button>
-            <button onclick="control.button1()" class="controls">Reset</button>
-            <button onclick="control.button2()" class="controls">Grid</button>
-            <button onclick="control.button3()" class="controls">Save</button>
-            <button onclick="control.button4()" class="controls">Soup</button>
-            <label class="controls" for="rate-slider">Rate:</label>
-	    <input class="controls" id="rate-slider" type="range" step="-50" min="1000" max="50" value="1000">
+            
+            <canvas id="gol-canvas" width="900" height="500"></canvas>
+            <button id="toggle_step_btn" class="controls">Go/Stop</button>
+            <button id="reset_btn"  class="controls">Reset</button>
+            <button id="toggle_grid_btn" class="controls">Grid</button>
+            <button class="controls">Save</button>
+            <button id="soup_btn" class="controls">Soup</button>
+            <label for="rate_slider" class="controls">Rate:</label>
+	    <input class="controls" id="rate_slider" step="-1" type="range" max="1000" min="50" value="1000">
+	    <label for="zoom_slider" class="controls">Zoom:</label>
+	    <input class="controls" id="zoom-slider" step="-1" type="range" max="20" min="5" value="10">
             <div class="saves">
-               <ol id="save-list">
-               </ol>
+              <ol id="save-list">
+              </ol>
             </div>
-			<div class="patterns">
-					<textarea id="rle-textarea" rows="6" cols="70">Enter RLE here.</textarea>
-				<div class="buttons">
-					<button class="rle-button" id="rle_submit_btn" onclick="get_pattern()">Read RLE</button>
-					<button class="rle-button" id="rle_generate_btn" onclick="generate_rle()">Generate RLE</button>
-				</div>
-				
-			</div>
-        </div>
-	<script src="utils.js"></script>
-        <script src="rate_controller.js"></script>
-        <script src="TDArray.js"></script>
-        <script src="gof.js"></script>
-        <script src="grid.js"></script>
-	<script src="decorated_gof.js"></script>
-        <script src="controller.js"></script>
-	<script src="rle.js"></script>
-	<script src="patterns.js"></script>
+	    <div class="rle_area">
+	      <textarea id="rle_textarea" rows="6" cols="70">Enter RLE here.</textarea>
+	      <button id="rle_submit_btn">Read RLE</button>
+	      <button id="rle_generate_btn">Generate RLE</button>
+	    </div>
+	    <div class="saved_pattern">
+	      <canvas id="pattern_canvas" width="300" height="300"></canvas>
+	    </div>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/patterns.js"></script>
+	<script src="js/utils.js"></script>
+        <script src="js/rate_controller.js"></script>
+        <script src="js/TDArray.js"></script>
+        <script src="js/gof.js"></script>
+	<script src="js/projection.js"></script>
+        <script src="js/grid.js"></script>
+	<script src="js/canvas_set.js"></script>
+	<script src="js/rle.js"></script>
+        <script src="js/state.js"></script>
+	<script src="js/control.js"></script>
     </body>
 </html>
