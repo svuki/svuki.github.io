@@ -22,6 +22,7 @@
           <li> Shift click to copy the pattern in the smaller canvas.</li>
           <li> The Go/Stop button will toggle iteration.</li>
           <li> The soup button fills the board with a random configuration. </li>
+	  <li> The save button saves a snapshot of the current state. The RLE button on a save generates the RLE for that snapshot. The LD button will reload the state to the main canvas. </li>
         </ul>
         </div>
         <div class="wrapper">
@@ -30,8 +31,8 @@
             <button id="toggle_step_btn" class="controls">Go/Stop</button>
             <button id="reset_btn"  class="controls">Reset</button>
             <button id="toggle_grid_btn" class="controls">Grid</button>
-            <button class="controls">Save</button>
             <button id="soup_btn" class="controls">Soup</button>
+	    <button id="save_btn" class="controls">Save</button>
             <label for="rate_slider" class="controls">Rate:</label>
 	    <input class="controls" id="rate_slider" step="-1" type="range" max="1000" min="50" value="1000">
 	    <label for="zoom_slider" class="controls">Zoom:</label>
@@ -61,6 +62,7 @@
 	<script src="js/canvas_set.js"></script>
 	<script src="js/rle.js"></script>
         <script src="js/state.js"></script>
+	<script src="js/save_list.js"></script>
 	<script src="js/control.js"></script>
     </body>
 </html>
