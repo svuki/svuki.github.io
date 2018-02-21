@@ -1,0 +1,7 @@
+rm -f to_minify
+touch to_minify
+
+for i in save_list.js patterns.js utils.js TDArray.js gof.js rate_controller.js projection.js grid.js canvas_set.js rle.js state.js 
+do
+	cat $i >> to_minify
+done
